@@ -12,17 +12,16 @@ $mail = new PHPMailer;
 $mail->isSMTP();        // Set mailer to use SMTP
 $mail->Host = 'smtp.gmail.com';   // Specify main and backup server
 $mail->SMTPAuth = true;           // Enable SMTP authentication
-$mail->Username = 'uewmailer@gmail.com';  // SMTP username
-$mail->Password = 'Uew_Covai';   // SMTP password
+$mail->Username = 'username@gmail.com';  // SMTP username
+$mail->Password = 'pwd';   // SMTP password
 $mail->SMTPSecure = 'tls';  // Enable encryption, 'ssl' also accepted
 $mail->Port = 587;  //Set the SMTP port number - 587 for authenticated TLS
-$mail->setFrom('uewcovai.seo@gmail.com', 'New Enquiry');  //Set who the message is to be sent from 
-$mail->addAddress('uewcovai.seo@gmail.com', 'New Enquiry');  // Mail Receiver Address 
-$mail->addCC('uewcovai.seo@gmail.com');
-// $mail->addBCC('uewcovai.seo@gmail.com');
-$mail->WordWrap = 50;  // Set word wrap to 50 characters
-$mail->addAttachment('/usr/labnol/file.doc');  // Add attachments
-$mail->addAttachment('/images/image.jpg', 'new.jpg'); // Optional name
+$mail->setFrom('someone@domain.com', 'Name');  //Set who the message is to be sent from 
+$mail->addAddress('someone@domain.com', 'Name');  // Mail Receiver Address 
+$mail->addCC('someone-another@domain.com');
+$mail->addBCC('someone-another@domain.com');
+$mail->WordWrap = 50;  // Set word wrap to 50 characters 
+$mail->addAttachment('/images/image.jpg', 'new.jpg'); //  Name is Optional
 $mail->isHTML(false);  
 
 // Set email format to HTML
@@ -31,7 +30,7 @@ $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
 $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
 if ($mail->addReplyTo($_POST['email'], $_POST['name'])) {
-        $mail->Subject = 'PHPMailer contact form';
+        $mail->Subject = 'PHPMailer Ajax contact form';
         //Keep it simple - don't use HTML
         $mail->isHTML(false);
         //Build a simple message body
